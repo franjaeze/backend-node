@@ -4,7 +4,7 @@ export class DeleteNote{
     constructor(noteId){
         this.noteId = noteId;
         this.notesRepository = new NotesRepository()
-    }
+    } 
 
     async run(){  
    

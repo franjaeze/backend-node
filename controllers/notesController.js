@@ -4,7 +4,7 @@ import { CreateNote } from '../useCases/createNote.js'
 import { FindNote } from '../useCases/findNote.js'
 import { UpdateNote } from '../useCases/updateNote.js'
 import { DeleteNote } from '../useCases/deleteNote.js'
-
+  
 export default class NotesController {
     constructor() {
       this.header = { 'content-type': 'application/json' }

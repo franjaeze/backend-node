@@ -115,7 +115,10 @@ async search(id = null) {
     async update(id, elementModify) {
     try {
         const objectId = new ObjectId(id);
-        const result = await this.collection.updateOne({ _id: objectId }, { $set: elementModify });
+       const { _id, ...elementWithOutId } = elementModify
+        
+        console.log(elementWithOutId)
+        const result = await this.collection.updateOne({ _id: objectId }, { $set: elementWithOutId });
         return result;
     } catch (error) {
         console.log(error);
