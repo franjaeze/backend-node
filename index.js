@@ -7,7 +7,7 @@ import notesRute from "./rotues/notesRute.js"
 
 const app = express(); 
 app.use(cors())
-app.use(express.json()) 
+app.use(express.json()) /// esto para decirle a express que puede crear json
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 
@@ -18,13 +18,13 @@ console.log("respusta del get")
 res.json ({ ok:true}); 
 });
 
-try {  
+/* try {  
     await mongoose.connect(process.env.MONGO_URI) 
   console.log ("Connect to DB") 
   } catch  (error) { 
   console.log ("Conection error " + error) 
  } 
-
+ */
  
  
 const PORT = process.env.PORT || 6000;
