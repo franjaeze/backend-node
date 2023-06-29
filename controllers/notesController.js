@@ -4,7 +4,8 @@ import { CreateNote } from '../useCases/createNote.js'
 import { FindNote } from '../useCases/findNote.js'
 import { UpdateNote } from '../useCases/updateNote.js'
 import { DeleteNote } from '../useCases/deleteNote.js'
-  
+import { SwitchStateNote } from '../useCases/switchStateNote.js'
+
 export default class NotesController {
     constructor() {
       this.header = { 'content-type': 'application/json' }
@@ -70,6 +71,19 @@ export default class NotesController {
           const noteId = req.params.id;
            const deleteNote = new DeleteNote(noteId)
           const result = await deleteNote.run() 
+          res.status(200).json(result);
+        } catch (error) {
+          console.log(error);
+          res.status(500).json({ mensaje: 'Could not delte the note' });
+        }
+      };
+
+    switchStateItem = async (req, res) => {
+        try {
+          const noteId = req.params.id;
+          const stateNote = req.body;
+           const patchNote = new SwitchStateNote(noteId, stateNote)
+          const result = await patchNote.run() 
           res.status(200).json(result);
         } catch (error) {
           console.log(error);

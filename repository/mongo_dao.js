@@ -141,6 +141,20 @@ async countDocuments(property) {
     }
 }
 
+async switchState(id, stateNote) {
+    try {
+        const objectId = new ObjectId(id);
+      
+        
+        console.log(stateNote)
+        const result = await this.collection.updateOne({ _id: objectId }, { $set: stateNote });
+        return result;
+    } catch (error) {
+        console.log(error);
+        throw new Error('Could not update the element');
+    }
+}
+
 /*  async buscarPorTipo(_tipo = null) {
    if (_tipo) {
        

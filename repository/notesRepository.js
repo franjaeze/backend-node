@@ -46,4 +46,8 @@ export class NotesRepository{
     list() {
         return this.notes.getAll();
     }
+
+    switchState(id, state){
+        return this.notes.switchState(id,state);
+    }
 }

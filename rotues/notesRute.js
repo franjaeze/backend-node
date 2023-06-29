@@ -13,5 +13,7 @@ router.post('/', notesController.createItem)
 router.put('/:id', notesController.updateItem); // ********** el PUT debe enviarse sin id ***********
 
 router.delete('/:id', notesController.deleteItem);
+
+router.patch('/:id', notesController.switchStateItem);
  
 export default router;
