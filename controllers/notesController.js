@@ -13,7 +13,7 @@ export default class NotesController {
     }
 
 
-    getItems = async (req, res) => {
+        getItems = async (req, res) => {
         try {
           //const data = await notesModel.find() esto si se hace directo con MONGOOSE
 
